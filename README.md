@@ -1,10 +1,10 @@
-# OverTheWire: Bandit - Writeup Lengkap (0-33)
+# OverTheWire: Bandit - Writeup (0-33)
 
-Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyelesaikan wargame OverTheWire Bandit dari Level 0 hingga 33. Setiap level dijelaskan dengan tantangan, logika penyelesaian, dan perintah yang digunakan.
+Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyelesaikan wargame OverTheWire Bandit dari Level 0 hingga 33. 
 
 ---
 
-### **Level 0 → 1: Langkah Pertama**
+### **Level 0 → 1**
 - **Tantangan:** Membaca isi file `readme` di home direktori.
 - **Logika:** Menggunakan perintah dasar Linux untuk membaca file.
 - **Perintah:**
@@ -15,7 +15,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 1 → 2: File Bernama Aneh**
+### **Level 1 → 2**
 - **Tantangan:** Membaca file yang namanya hanya `-` (karakter strip).
 - **Logika:** Karakter `-` adalah karakter spesial. Kita harus menggunakan path relatif `./` agar shell tidak salah mengartikannya sebagai opsi.
 - **Perintah:**
@@ -26,7 +26,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 2 → 3: Nama File dengan Spasi**
+### **Level 2 → 3**
 - **Tantangan:** Membaca file yang namanya mengandung spasi (`spaces in this filename`).
 - **Logika:** Nama file harus dibungkus dengan tanda kutip (`"`) agar dianggap sebagai satu argumen utuh oleh shell.
 - **Perintah:**
@@ -37,7 +37,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 3 → 4: File Tersembunyi**
+### **Level 3 → 4**
 - **Tantangan:** Password ada di dalam sebuah direktori, namun filenya tersembunyi.
 - **Logika:** Di Linux, file yang namanya diawali dengan titik (`.`) dianggap tersembunyi dan tidak muncul di `ls` biasa. Gunakan `ls -la` untuk menampilkannya.
 - **Perintah:**
@@ -49,7 +49,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 4 → 5: Mencari di Tumpukan Jerami**
+### **Level 4 → 5**
 - **Tantangan:** Password ada di salah satu dari banyak file, dimana mayoritas berisi data sampah (non-readable).
 - **Logika:** File password biasanya berupa teks biasa dan hanya berisi satu baris. Kita bisa memfilter semua file berdasarkan kriteria ini.
 - **Perintah:**
@@ -63,7 +63,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 5 → 6: Pencarian Berbasis Properti File**
+### **Level 5 → 6**
 - **Tantangan:** Mencari file dengan kombinasi properti spesifik: *human-readable*, ukuran 1033 byte, dan tidak bisa dieksekusi.
 - **Logika:** Perintah `find` sangat ideal untuk pencarian berbasis metadata file.
 - **Perintah:**
@@ -77,7 +77,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 6 → 7: Pencarian Lintas Direktori**
+### **Level 6 → 7**
 - **Tantangan:** File password bisa ada di mana saja di server. Kriterianya: dimiliki user `bandit7`, group `bandit6`, ukuran 33 byte.
 - **Logika:** Gunakan `find` dari direktori root (`/`) dan buang semua pesan error "Permission denied" agar output bersih.
 - **Perintah:**
@@ -89,7 +89,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 7 → 8: Mencari Kata Kunci**
+### **Level 7 → 8**
 - **Tantangan:** Password ada di baris yang sama dengan kata `millionth` di file `data.txt`.
 - **Logika:** `grep` adalah perintah terbaik untuk mencari teks di dalam file.
 - **Perintah:**
@@ -100,7 +100,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 8 → 9: Mencari Baris Unik**
+### **Level 8 → 9**
 - **Tantangan:** Password adalah satu-satunya baris yang unik di file `data.txt`.
 - **Logika:** Kombinasikan `sort` untuk mengurutkan dan `uniq -u` untuk memfilter hanya baris yang muncul sekali.
 - **Perintah:**
@@ -111,7 +111,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 9 → 10: Teks di Tengah Biner**
+### **Level 9 → 10**
 - **Tantangan:** Password adalah string teks yang bisa dibaca di dalam file biner.
 - **Logika:** Gunakan `strings` untuk mengekstrak semua teks, lalu `grep` untuk mencari pola yang mencurigakan (dalam kasus ini, baris yang diawali `==`).
 - **Perintah:**
@@ -122,7 +122,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 10 → 11: Dekripsi Base64**
+### **Level 10 → 11**
 - **Tantangan:** Password di-encode menggunakan Base64.
 - **Logika:** Gunakan command `base64 -d` untuk men-decode.
 - **Perintah:**
@@ -133,7 +133,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 11 → 12: Dekripsi ROT13**
+### **Level 11 → 12**
 - **Tantangan:** Password dienkripsi dengan ROT13.
 - **Logika:** Gunakan `tr` untuk translasi karakter, menggeser setiap huruf 13 posisi.
 - **Perintah:**
@@ -144,14 +144,14 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 12 → 13: Rantai Dekompresi**
+### **Level 12 → 13**
 - **Tantangan:** File adalah hexdump dari file yang dikompresi berlapis-lapis.
 - **Logika:** Lakukan dekompresi berantai satu per satu, dengan memeriksa tipe file di setiap langkah. Urutannya: `xxd -r` -> `gunzip` -> `bzip2` -> `gunzip` -> `tar` -> `tar` -> `bzip2` -> `tar` -> `gunzip`.
 - **Password:** `FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn`
 
 ---
 
-### **Level 13 → 14: Otentikasi dengan SSH Key**
+### **Level 13 → 14**
 - **Tantangan:** Login sebagai user `bandit14` menggunakan private key.
 - **Logika:** Gunakan opsi `-i` pada `ssh` untuk menentukan file private key yang akan digunakan.
 - **Perintah:**
@@ -162,7 +162,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 14 → 15: Interaksi via Network Port**
+### **Level 14 → 15**
 - **Tantangan:** Mengirim password ke port 30000 di localhost untuk mendapatkan password berikutnya.
 - **Logika:** Gunakan `echo` dan `nc` (netcat) untuk mengirim data ke port jaringan.
 - **Perintah:**
@@ -173,7 +173,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 15 → 16: Interaksi via SSL**
+### **Level 15 → 16**
 - **Tantangan:** Sama seperti sebelumnya, tapi kali ini koneksi harus melalui SSL/TLS.
 - **Logika:** Gunakan `openssl s_client` sebagai pengganti `netcat` untuk membuat koneksi terenkripsi.
 - **Perintah:**
@@ -184,7 +184,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 16 → 17: Port Scanning & SSL**
+### **Level 16 → 17**
 - **Tantangan:** Menemukan port SSL yang benar di antara range 31000-32000.
 - **Logika:** Gunakan `nmap` untuk memindai port yang terbuka, lalu coba konek satu per satu menggunakan `openssl s_client`.
 - **Perintah:**
@@ -197,7 +197,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 17 → 18: Membandingkan File**
+### **Level 17 → 18**
 - **Tantangan:** Password adalah baris yang ada di `passwords.new` tapi tidak ada di `passwords.old`.
 - **Logika:** Perintah `diff` dibuat khusus untuk tugas ini.
 - **Perintah:**
@@ -208,7 +208,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 18 → 19: Shell yang Langsung Keluar**
+### **Level 18 → 19**
 - **Tantangan:** Sesi SSH langsung tertutup.
 - **Logika:** Jalankan perintah yang diinginkan langsung sebagai argumen `ssh` agar dieksekusi sebelum shell sempat keluar.
 - **Perintah:**
@@ -219,7 +219,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 19 → 20: Pemanfaatan SUID**
+### **Level 19 → 20**
 - **Tantangan:** Membaca file yang hanya bisa diakses `bandit20` menggunakan program SUID `bandit20-do`.
 - **Logika:** Program SUID akan berjalan dengan hak akses owner-nya. Kita bisa "menitip" perintah `cat` untuk dijalankan oleh program ini.
 - **Perintah:**
@@ -230,7 +230,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 20 → 21: Reverse Connection**
+### **Level 20 → 21**
 - **Tantangan:** Sebuah program SUID akan konek ke port yang kita tentukan.
 - **Logika:** Buat server listener sendiri menggunakan `nc` di background, yang siap mengirim password saat program SUID itu konek.
 - **Perintah:**
@@ -244,7 +244,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 21-23: Eksploitasi Cron Job**
+### **Level 21-23**
 - **Tantangan:** Menemukan dan menganalisa cron job yang berjalan periodik untuk membocorkan password.
 - **Logika:** Periksa direktori `/etc/cron.d/`, baca skrip yang dijalankan, dan cari tahu di mana skrip itu menyimpan outputnya (biasanya di `/tmp`).
 - **Password 22:** `tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q`
@@ -252,14 +252,14 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 23 → 24: Injeksi Skrip via Cron Job**
+### **Level 23 → 24**
 - **Tantangan:** Sebuah cron job akan mengeksekusi skrip apa pun yang kita taruh di direktori tertentu.
 - **Logika:** Buat skrip sederhana yang isinya `cat /etc/bandit_pass/bandit24 > /tmp/lokasi_aman`, lalu letakkan skrip itu di direktori yang dieksekusi cron.
 - **Password:** `gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8`
 
 ---
 
-### **Level 24 → 25: Brute Force PIN**
+### **Level 24 → 25**
 - **Tantangan:** Menebak PIN 4 digit yang dikirim bersamaan dengan password.
 - **Logika:** Buat skrip `for` loop untuk mencoba semua 10.000 kemungkinan PIN (0000-9999) dan kirim semuanya dalam satu koneksi `netcat`.
 - **Perintah:**
@@ -270,14 +270,14 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 25 → 27: Shell Escape**
+### **Level 25 → 27**
 - **Tantangan:** Kabur dari shell terbatas.
-- **Logika (Insight dari user):** Manfaatkan perilaku pager `more` yang akan berhenti jika ukuran terminal terlalu kecil. Saat `more` berhenti, tekan `v` untuk masuk `vi`, lalu gunakan `:set shell=/bin/bash` dan `:shell` untuk mendapatkan shell penuh.
+- **Logika:** Manfaatkan perilaku pager `more` yang akan berhenti jika ukuran terminal terlalu kecil. Saat `more` berhenti, tekan `v` untuk masuk `vi`, lalu gunakan `:set shell=/bin/bash` dan `:shell` untuk mendapatkan shell penuh.
 - **Password 27:** `upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB`
 
 ---
 
-### **Level 27 → 32: Trik-trik Git**
+### **Level 27 → 32**
 - **Tantangan:** Serangkaian level yang menguji pengetahuan mendalam tentang `git`, harus dieksekusi dari mesin lokal.
 - **Logika:**
   - **27→28:** `git clone` biasa.
@@ -289,7 +289,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 32 → 33: Uppercase Shell Escape**
+### **Level 32 → 33**
 - **Tantangan:** Kabur dari shell yang hanya menerima input huruf besar.
 - **Logika:** Perintah `$0` di shell seringkali merujuk ke nama skrip/program itu sendiri. Mengeksekusinya bisa me-respawn proses shell dan memberimu shell normal.
 - **Perintah:**
@@ -302,7 +302,7 @@ Dokumen ini adalah panduan dan catatan perjalanan (*walkthrough*) untuk menyeles
 
 ---
 
-### **Level 33 → Selesai**
+### **Level 33 → 34**
 - **Tantangan:** Level terakhir.
 - **Logika:** Cukup baca `README.txt` untuk pesan kelulusan.
 - **Pesan:** *Congratulations on solving the last level of this game!*
